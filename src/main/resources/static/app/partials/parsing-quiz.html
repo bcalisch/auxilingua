@@ -1,0 +1,182 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header ">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/dashboard">Auxilingua</a>
+        </div>
+        <!--<a href="#/dashboard">Back</a>-->
+        <!--<a href="#/login">Logout</a>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li><a href="#/login">Logout</a></li>
+                <li> </li>
+            <p class="centeredTitle">Parsing Quiz</p>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="row col-xs-2  containingRow" data-ng-init="init()">
+    <div class="affix well nav containingRow">
+        <!--<button type="button" class="btn btn-info" ng-click="clearButtons()">Reset</button>-->
+        <h4 ng-class="{correct:voiceSelection == word.voice && voiceSelection != ''}">Voice</h4>
+
+        <div class="btn-group-sm" role="group" aria-label="...">
+            <!--<button type="button" ng-class="{active:attribute[0] == ''}" class="btn btn-default"-->
+                    <!--ng-click="setSelection(0,'')">Either-->
+            <!--</button>-->
+            <button type="button" ng-class="{active:attribute[0] == 'a'}" class="btn btn-default"
+                    ng-click="setSelection(0,'a')">Active
+            </button>
+            <button type="button" ng-class="{active:attribute[0] == 'p'}" class="btn btn-default"
+                    ng-click="setSelection(0,'p')">Passive
+            </button>
+        </div>
+        <h4 ng-class="{correct:personSelection == word.person && personSelection != ''}">Person</h4>
+
+        <div class="btn-group-sm" role="person" aria-label="....">
+            <!--<button type="checkbox" ng-class="{active:attribute[1] == ''}" class="btn btn-default"-->
+                    <!--ng-click="setSelection(1, '')">Either-->
+            <!--</button>-->
+            <button type="button" ng-class="{active:attribute[1] == 'F'}" class="btn btn-default"
+                    ng-click="setSelection(1,'F')">First
+            </button>
+            <button type="button" ng-class="{active:attribute[1] == 'S'}" class="btn btn-default"
+                    ng-click="setSelection(1,'S')">Second
+            </button>
+            <button type="button" ng-class="{active:attribute[1] == 'T'}" class="btn btn-default"
+                    ng-click="setSelection(1,'T')">Third
+            </button>
+        </div>
+
+        <h4 ng-class="{correct:principlePartSelection == word.principlePart && principlePartSelection != ''}">
+            Principal Part</h4>
+
+        <div class="btn-group" role="person" aria-label="....">
+            <!--<button type="button" ng-class="{active:attribute[2] == ''}" class="btn btn-default"-->
+                    <!--ng-click="setSelection(2,'')">Any-->
+            <!--</button>-->
+            <button type="button-sm" ng-class="{active:attribute[2] == 'first'}" class="btn btn-default"
+                    ng-click="setSelection(2,'first')">First
+            </button>
+            <button type="button" ng-class="{active:attribute[2] == 'third'}" class="btn btn-default"
+                    ng-click="setSelection(2,'third')">Third
+            </button>
+            <button type="button" ng-class="{active:attribute[2] == 'fourth'}" class="btn btn-default"
+                    ng-click="setSelection(2,'fourth')">Fourth
+            </button>
+        </div>
+
+        <h4 ng-class="{correct:numberSelection == word.number && numberSelection != ''}">Number</h4>
+
+        <div class="btn-group-sm" role="person" aria-label="....">
+            <!--<button type="button" ng-class="{active:attribute[3] == ''}" class="btn btn-default"-->
+                    <!--ng-click="setSelection(3,'')">Either-->
+            <!--</button>-->
+            <button type="button" ng-class="{active:attribute[3] == 'S'}" class="btn btn-default"
+                    ng-click="setSelection(3, 'S')">Singular
+            </button>
+            <button type="button" ng-class="{active:attribute[3] == 'P'}" class="btn btn-default"
+                    ng-click="setSelection(3, 'P')">Plural
+            </button>
+        </div>
+
+        <h4 ng-class="{correct:moodSelection == word.mood && moodSelection != ''}">Mood</h4>
+
+        <div class="btn-group-sm" role="person" data-toggle="buttons" aria-label="....">
+            <!--<button type="button" ng-class="{active:attribute[4] == ''}" class="btn btn-default"-->
+                    <!--ng-click="setSelection(4,'')">Either-->
+            <!--</button>-->
+            <button type="button" ng-class="{active:attribute[4] == 'Indicative'}" class="btn btn-default"
+                    ng-click="setSelection(4,'Indicative')">Indicative
+            </button>
+            <button type="button" ng-class="{active:attribute[4] == 'Subjunctive'}" class="btn btn-default"
+                    ng-click="setSelection(4,'Subjunctive')">Subjunctive
+            </button>
+        </div>
+
+        <h4 ng-class="{correct:tenseSelection == word.tense && tenseSelection !=''}">Tense</h4>
+
+        <div class="btn-group-sm" role="person" aria-label="....">
+            <!--<button type="button" ng-class="{active:attribute[5] == ''}" class="btn btn-default"-->
+                    <!--ng-click="setSelection(5,'')">Any-->
+            <!--</button>-->
+            <button type="button" ng-class="{active:attribute[5] === 'Present'}" class="btn btn-default"
+                    ng-click="setSelection(5,'Present')">Present
+            </button>
+            <button type="button" ng-class="{active:attribute[5] === 'Imperfect'}" class="btn btn-default"
+                    ng-click="setSelection(5,'Imperfect')">Imperfect
+            </button>
+            <button type="button" ng-class="{active:attribute[5] === 'Future'}" class="btn btn-default"
+                    ng-click="setSelection(5,'Future')">Future
+            </button>
+            <button type="button" ng-class="{active:attribute[5] === 'Perfect'}" class="btn btn-default"
+                    ng-click="setSelection(5,'Perfect')">Perfect
+            </button>
+            <button type="button" ng-class="{active:attribute[5] === 'Pluperfect'}" class="btn btn-default"
+                    ng-click="setSelection(5,'Pluperfect')">Pluperfect
+            </button>
+            <button type="button" ng-class="{active:attribute[5] === 'Future Perfect'}" class="btn btn-default"
+                    ng-click="setSelection(5,'Future Perfect')">Future Perfect
+            </button>
+        </div>
+        <br>
+        <div class="row"></div>
+
+        <button type="button button-sm " class="btn btn-default btn-success" ng-click="checkAnswers()">Submit
+        </button>
+    </div>
+</div>
+<div class="col-xs-8 divRow">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th class=><h2></h2></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td class="col-md-1">
+                    <div>
+                        <table class="table table-hover table-bordered">
+
+                            <tbody>
+                            <!--<input type="text" ng-model="id">-->
+                            <button type="button" class="btn btn-default" ng-click="getWord()">Get New Word</button>
+                            <tr>
+
+                                <!-- "{'class1':{{word.person}}, 'class2':{{word.tense}} , 'class3':{{word.conjugation}} , 'class4':{{word.voice}}, 'class5': {{word.mood}},'class6' :{{word.principlePart}}}" -->
+                                <td class="{{visibility}}">
+                                    {{word.word}}
+                                </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+

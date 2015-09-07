@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+      Search: <input ng-model="query">
+    </div>
+  </div>
+  <!--Body content-->
+  <div class= "row">
+    <div class="col-lg-3">
+        Fixed content
+    </div>
+    <div class="col-md-2">
+     <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Present Active Indicative</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="word in words | filter:{voice:'active', tense:'Present', mood: 'Indicative'} ">
+          <td >
+            {{word.word}} 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-2">
+   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Present Passive Indicative</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="word in words | filter:{voice:'passive', tense:'Present', mood: 'Indicative'} ">
+        <td >
+          {{word.word}} 
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="col-md-2">
+ <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Present Active Subjunctive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="word in words | filter:{voice:'active', tense:'Present', mood: 'Subjunctive'} ">
+      <td >
+        {{word.word}} 
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+<div class="col-md-2">
+ <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Present Passive Subjunctive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="word in words | filter:{voice:'passive', tense:'Present', mood: 'Subjunctive'} ">
+      <td >
+        {{word.word}}
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+</div>
+</div>

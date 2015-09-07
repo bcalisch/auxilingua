@@ -1,0 +1,612 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <a class="navbar-brand" href="#/dashboard">Auxilingua</a>
+        </div>
+        <!--<a href="#/dashboard">Back</a>-->
+        <!--<a href="#/login">Logout</a>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li><a href="#/login">Logout</a></li>
+                <li> </li>
+                <p class="centeredTitle">Parsing Playground</p>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <!--Body content-->
+
+        <div class="row col-xs-2  containingRow">
+            <div class="affix well nav containingRow">
+                <button type="button" class="btn btn-info" ng-click="clearButtons()">Reset</button>
+                <h4>Voice</h4>
+
+                <div class="btn-group-sm" role="group" aria-label="...">
+                    <button type="button" ng-class="{active:voiceSelection == ''}" class="btn btn-default"
+                            ng-click="setSelection(0,'')">Either
+                    </button>
+                    <button type="button" ng-class="{active:voiceSelection == 'a'}" class="btn btn-default"
+                            ng-click="setSelection(0,'a')">Active
+                    </button>
+                    <button type="button" ng-class="{active:voiceSelection == 'p'}" class="btn btn-default"
+                            ng-click="setSelection(0,'p')">Passive
+                    </button>
+                </div>
+                <h4>Person</h4>
+
+                <div class="btn-group-sm" role="person" aria-label="....">
+                    <button type="checkbox" ng-class="{active:personSelection == ''}" class="btn btn-default"
+                            ng-click="setSelection(1, '')">Either
+                    </button>
+                    <button type="button" ng-class="{active:personSelection == 'F'}" class="btn btn-default"
+                            ng-click="setSelection(1,'F')">First
+                    </button>
+                    <button type="button" ng-class="{active:personSelection == 'S'}" class="btn btn-default"
+                            ng-click="setSelection(1,'S')">Second
+                    </button>
+                    <button type="button" ng-class="{active:personSelection == 'T'}" class="btn btn-default"
+                            ng-click="setSelection(1,'T')">Third
+                    </button>
+                </div>
+
+                <h4>Principal Part</h4>
+
+                <div class="btn-group-sm" role="person" aria-label="....">
+                    <button type="button" ng-class="{active:principlePartSelection == ''}" class="btn btn-default"
+                            ng-click="setSelection(2,'')">Any
+                    </button>
+                    <button type="button" ng-class="{active:principlePartSelection == 'first'}" class="btn btn-default"
+                            ng-click="setSelection(2,'first')">First
+                    </button>
+                    <button type="button" ng-class="{active:principlePartSelection == 'third'}" class="btn btn-default"
+                            ng-click="setSelection(2,'third')">Third
+                    </button>
+                    <button type="button" ng-class="{active:principlePartSelection == 'fourth'}" class="btn btn-default"
+                            ng-click="setSelection(2,'fourth')">Fourth
+                    </button>
+                </div>
+
+                <h4>Number</h4>
+
+                <div class="btn-group-sm" role="person" aria-label="....">
+                    <button type="button" ng-class="{active:numberSelection == ''}" class="btn btn-default"
+                            ng-click="setSelection(3,'')">Either
+                    </button>
+                    <button type="button" ng-class="{active:numberSelection == 'S'}" class="btn btn-default"
+                            ng-click="setSelection(3, 'S')">Singular
+                    </button>
+                    <button type="button" ng-class="{active:numberSelection == 'P'}" class="btn btn-default"
+                            ng-click="setSelection(3, 'P')">Plural
+                    </button>
+                </div>
+
+                <h4>Mood</h4>
+
+                <div class="btn-group-sm" role="person" data-toggle="buttons" aria-label="....">
+                    <button type="button" ng-class="{active:moodSelection == ''}" class="btn btn-default"
+                            ng-click="setSelection(4,'')">Either
+                    </button>
+                    <button type="button" ng-class="{active:moodSelection == 'Indicative'}" class="btn btn-default"
+                            ng-click="setSelection(4,'Indicative')">Indicative
+                    </button>
+                    <button type="button" ng-class="{active:moodSelection == 'Subjunctive'}" class="btn btn-default"
+                            ng-click="setSelection(4,'Subjunctive')">Subjunctive
+                    </button>
+                </div>
+
+                <h4>Tense</h4>
+
+                <div class="btn-group-sm" role="person" aria-label="....">
+                    <button type="button" ng-class="{active:tenseSelection == ''}" class="btn btn-default"
+                            ng-click="setSelection(5,'')">Any
+                    </button>
+                    <button type="button" ng-class="{active:tenseSelection == 'Present'}" class="btn btn-default"
+                            ng-click="setSelection(5,'Present')">Present
+                    </button>
+                    <button type="button" ng-class="{active:tenseSelection == 'Imperfect'}" class="btn btn-default"
+                            ng-click="setSelection(5,'Imperfect')">Imperfect
+                    </button>
+                    <button type="button" ng-class="{active:tenseSelection == 'Future'}" class="btn btn-default"
+                            ng-click="setSelection(5,'Future')">Future
+                    </button>
+                    <button type="button" ng-class="{active:tenseSelection == 'Perfect'}" class="btn btn-default"
+                            ng-click="setSelection(5,'Perfect')">Perfect
+                    </button>
+                    <button type="button" ng-class="{active:tenseSelection == 'Pluperfect'}" class="btn btn-default"
+                            ng-click="setSelection(5,'Pluperfect')">Pluperfect
+                    </button>
+                    <button type="button" ng-class="{active:attribute[5] === 'Future Perfect'}" class="btn btn-default"
+                            ng-click="setSelection(5,'Future Perfect')">Future Perfect
+                    </button>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="col-xs-8 divRow">
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class=><h2>Present</h2></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Present', mood: 'Indicative'}:true ">
+                                        <!-- "{'class1':{{word.person}}, 'class2':{{word.tense}} , 'class3':{{word.conjugation}} , 'class4':{{word.voice}}, 'class5': {{word.mood}},'class6' :{{word.principlePart}}}" -->
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Present', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Present', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Present', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- Indicative-->
+
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class=><h2>Imperfect</h2></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Imperfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Imperfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Imperfect', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Imperfect', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Future-->
+
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th><h2>Future</h2></th>
+                        <th><h2></h2></th>
+                        <th><h2>Future Perfect</h2></th>
+                        <th><h2></h2></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Future', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Future', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Future Perfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Future Perfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Perfect-->
+
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class=><h2>Perfect</h2></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Perfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Perfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Perfect', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Perfect', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pluperfect-->
+
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class=><h2>Pluperfect</h2></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Pluperfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Indicative</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Pluperfect', mood: 'Indicative'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Active Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'a', tense:'Pluperfect', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="col-md-1">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Passive Subjunctive</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="word in words | filter:{voice:'p', tense:'Pluperfect', mood: 'Subjunctive'}:true ">
+                                        <td ng-class="getClass({{word}})" ng-click="findWord(word)">
+                                            {{word.word}}
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+

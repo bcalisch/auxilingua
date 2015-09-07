@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+
+    <div class="row headerRow">
+        <div class="jumbotron jumboFixed text-center"><h2>Welcome to Auxilingua!</h2></div>
+    </div>
+    <div class="login-container">
+
+        <!--Body content-->
+
+        <form class=" vertical-center">
+            <div class="login-box ">
+
+                <div class="photoContainer col-md-offset-8 ">
+                    <p class="alert-danger error-p {{visibility}}">The login information you have presented is not acceptable. Please try
+                        again.
+                    </p>
+                    <input type="text" name="user" placeholder="Username" ng-model="user.id">
+                    <br>
+                    <br>
+                    <input type="password" name="pass"  placeholder="Password"
+                           ng-model="user.password">
+                    <br>
+                    <br>
+                    <input type="submit" name="login" class="login loginmodal-submit" ng-click="verify()">
+
+                    <p>Not a member? Register <a href="#/registration">Here</a></p>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
+<div>
+    {{user.id}} {{user.password}}
+    </br>
+    {{verified}}
+</div>
+
+</div>
+</div>
+

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <a class="navbar-brand" href="#/dashboard">Auxilingua</a>
+        </div>
+        <!--<a href="#/dashboard">Back</a>-->
+        <!--<a href="#/login">Logout</a>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li><a href="#/login">Logout</a></li>
+                <li> </li>
+                <p class="centeredTitle">Common Phrases Quiz</p>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+
+
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid">
+    <a href="#/dashboard">Back</a>
+    <a href="#/login">Logout</a>
+
+    <div class="row center-block text-center containingRow"></div>
+
+    <div class="row center-block">
+        <div class="col-xs-8">
+            <td class="col-md-8 ">
+                <button ng-click="getPossibilities()">New Phrase</button>
+                <div class="{{answerClass}}">
+
+                    <table  class="table table-hover table-bordered {{visibility}}">
+                        <thead>
+                        <tr>
+                            <th><h2>{{answer.latin}}</h2></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="possible in possibilities">
+                            <td ng-class="{bold: possible.id===answer.id && answerClass>''}" class="word" ng-click="checkAnswer(possible.id)">
+                                {{possible.english}}
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+
+
+
+        </div>
+    </div>
+</div>
+</div>

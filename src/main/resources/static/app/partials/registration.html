@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default navbar-fixed-top navbarDash">
+    <div class="">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <a class="navbar-brand" href="#/dashboard">Auxilingua</a>
+        </div>
+        <!--<a href="#/dashboard">Back</a>-->
+        <!--<a href="#/login">Logout</a>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li><a href="#/login">Cancel</a></li>
+                <li> </li>
+                <p class="centeredTitle">Registration Form</p>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+
+
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid">
+
+
+    <div class="row headerRow">
+        <div class="jumbotron  jumboFixed text-center"></div>
+    </div>
+    <a href="#/login">Cancel</a>
+    <div class="registration-container">
+
+        <!--Body content-->
+
+        <form class=" vertical-center">
+            <div class="registration-box">
+                <div class="col-sm-7 col-md-7 col-md-offset-5 ">
+                    <input type="text" name="user" placeholder="Username" ng-model="user.id">
+                    <br>
+                    <br>
+                    <input type="password" name="pass" ng-class="" placeholder="Password"
+                           ng-model="user.password">
+                    <br>
+                    <br>
+                    <input type="submit" name="registration" class=" registrationmodal-submit" ng-click="postUser()">
+
+                </div>
+                <p class = "{{visibility}}">{{thisResponse}}</p>
+
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
+
+</div>
+</div>
+

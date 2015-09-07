@@ -1,0 +1,56 @@
+/*.vertical-center {*/
+    /*margin-top:15%;*/
+/*}*/
+
+.login-container{
+    /* border: 1px solid red; */
+    height: 40em;
+    width: 100%;
+    margin-left: 20%;
+    /* margin: auto; */
+    text-align: center;
+
+}
+.login-box{
+
+    width: 21em;
+    padding-top: 3em;
+
+}
+.headerRow{
+    padding-top:0;
+    margin-top:0;
+}
+
+
+/*.error{*/
+    /*background-color:red;*/
+/*}*/
+.jumboFixed{
+    height: 10%;
+    width:100%;
+    margin:0;
+    padding: 1em;
+    margin-bottom: 3em;
+    /*background-color: rgba(19, 114, 39, 0.48);*/
+}
+.invisible{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible !important;
+}
+
+
+.photoContainer {
+    background-image: url(../img/reef-clipart-olive-leaf-gold.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 26em;
+    min-width: 26em;
+
+}
+.containerRowDash{
+    margin-top:5em;
+}
+

@@ -1,0 +1,74 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <a class="navbar-brand" href="#/dashboard">Auxilingua</a>
+        </div>
+        <!--<a href="#/dashboard">Back</a>-->
+        <!--<a href="#/login">Logout</a>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li><a href="#/login">Logout</a></li>
+                <li> </li>
+                <p class="centeredTitle">Common Phrases</p>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container-fluid">
+    <a href="#/dashboard">Back</a>
+    <a href="#/login">Logout</a>
+
+    <div class="row center-block text-center containingRow"></div>
+    <div class="row">
+        <div class="col-xs-8">
+
+            <div>
+
+
+                    <label><span class="label label-default">Search</span></label>
+                    <input type="text" ng-model="search" data-value="Search...">
+                <h2></h2>
+                    <br>
+                <div class="html-editor-align-center text-center center-block center-pill">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead>
+                        <tr>
+                            <th>Latin</th>
+                            <th>English</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="phrase in phrases | filter:search | orderBy: 'latin'">
+                            <!-- "{'class1':{{word.person}}, 'class2':{{word.tense}} , 'class3':{{word.conjugation}} , 'class4':{{word.voice}}, 'class5': {{word.mood}},'class6' :{{word.principlePart}}}" -->
+                            <td col-xs-4 >
+                                {{phrase.latin}}
+                            </td>
+                            <td col-xs-4>
+                                {{phrase.english}}
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
