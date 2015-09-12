@@ -1,6 +1,6 @@
 auxilinguaControllers.controller('LoginController', 
-  function($scope, $http) {
-  $scope.user= {id: $scope.Name, password: $scope.password}
+  function($scope, $rootScope, $http) {
+  $rootScope.user= {id: $scope.Name, password: $scope.password}
       if($scope.verified === undefined){
           console.log("Verified: "+$scope.verified);
           $scope.visibility="invisible";
@@ -9,7 +9,7 @@ auxilinguaControllers.controller('LoginController',
 
 
 
-     $http.post('http://localhost:7878/parsingplayground', $scope.user).
+     $http.post('http://localhost:7878/parsingplayground', $rootScope.user).
   then(function(response) {
     // this callback will be called asynchronously
     // when the response is available
