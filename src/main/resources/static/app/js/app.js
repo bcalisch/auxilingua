@@ -17,10 +17,10 @@ auxilingua.config(['$routeProvider',
                 templateUrl: '/app/partials/latin-detail.html',
                 controller: 'LatinDetailCtrl'
             }).
-            when('/login', {
-                templateUrl: '/app/partials/login.html',
-                controller: 'LoginController'
-            }).
+            //when('/login', {
+            //    templateUrl: '/app/partials/login.html',
+            //    controller: 'LoginController'
+            //}).
             when('/registration', {
                 templateUrl: '/app/partials/registration.html',
                 controller: 'RegistrationController'
@@ -44,6 +44,6 @@ auxilingua.config(['$routeProvider',
             }).
 
             otherwise({
-                redirectTo: '/login'
+                redirectTo: '/dashboard'
             });
     }]);

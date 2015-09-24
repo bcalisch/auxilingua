@@ -9,7 +9,7 @@ auxilinguaControllers.controller('RegistrationController',
             then(function(response) {
                 $scope.thisResponse= "Success";
                 $scope.visibility = "visible";
-                window.location.href = "./#/dashboard"
+                window.location.href = "./#/dashboard";
             }, function(response) {
                 $scope.thisResponse="You cannot reuse the id " + $scope.user.id;
                 $scope.visibility = "visible";
